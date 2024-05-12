@@ -28,6 +28,7 @@ namespace SpotTheDifference
         public void ObjectSelectedSuccessfully()
         {
             differenceObjectConfig.hasFound = true;
+            checkmarkGObj.SetActive(true);
         }
 
         public void OnPointerClick(PointerEventData eventData)

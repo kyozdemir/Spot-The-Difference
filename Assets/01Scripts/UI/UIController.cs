@@ -41,6 +41,8 @@ namespace SpotTheDifference
         
         public void StartGame()
         {
+            GetPanel(Panels.LevelComplete).HidePanel();
+            GetPanel(Panels.LevelFail).HidePanel();
             GetPanel(Panels.MainMenu).HidePanel();
             GetPanel(Panels.Hud).ShowPanel();
         }
