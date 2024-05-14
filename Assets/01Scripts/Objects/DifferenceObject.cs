@@ -33,6 +33,7 @@ namespace SpotTheDifference
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            //User clicked the true object
             if(differenceObjectConfig.hasFound) return;
             ObjectSelectedSuccessfully();
             OnClickedObject?.Invoke(differenceObjectConfig.id);

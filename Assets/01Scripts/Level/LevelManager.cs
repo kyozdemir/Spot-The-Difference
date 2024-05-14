@@ -44,19 +44,24 @@ namespace SpotTheDifference
 
         public void ActivateCurrentLevel()
         {
+            //Deactivate previous level
             DeactivateLevel();
 
+            //Get level index
             activatedLevelIndex = GetLevelNumber();
 
+            //Create next level prefab
             LevelController next = levels[activatedLevelIndex];
-
             LevelController nextLevel = Instantiate(next, levelParentTransform);
+            
+            //Destroy previous level
             if (_currentLevel is not null)
             {
                 DestroyImmediate(_currentLevel.gameObject);
                 _currentLevel = null;
             }
 
+            //Initialize level
             _currentLevel = nextLevel.GetComponent<LevelController>();
             _currentLevel.Initialize();
             _currentLevel.Activate();
@@ -67,6 +72,7 @@ namespace SpotTheDifference
 
         private int GetLevelNumber()
         {
+            //If level number higher than levels count, pick random and different from previous
             if (IsRandomLevelSelectionAvaliable())
             {
                 int recurringLevelIndex = activatedLevelIndex;
@@ -102,9 +108,7 @@ namespace SpotTheDifference
             currentLevelNumber++;
         }
 
-        public void LevelFailed()
-        {
-        }
+        public void LevelFailed() { }
 
         public void ReturnedToMainMenu()
         {

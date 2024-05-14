@@ -18,14 +18,25 @@ namespace SpotTheDifference
             buttonReturn.onClick.AddListener(OnClickedButtonReturn);
         }
 
+        public override void ShowPanel()
+        {
+            base.ShowPanel();
+            GameManager.Instance.soundManager.PlayGameStateSound(GameStateSound.LevelComplete);
+            Taptic.Success();
+        }
+
         private void OnClickedButtonNext()
         {
             GameManager.Instance.StartGame();
+            GameManager.Instance.soundManager.PlayClickSound(ClickSound.ButtonClick);
+            Taptic.Light();
         }
 
         private void OnClickedButtonReturn()
         {
             GameManager.Instance.ReturnToMainMenu();
+            GameManager.Instance.soundManager.PlayClickSound(ClickSound.ButtonClick);
+            Taptic.Light();
         }
 
         private void OnDestroy()

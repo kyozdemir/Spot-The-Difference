@@ -19,6 +19,7 @@ namespace SpotTheDifference
         private void OnClickedButtonPlay()
         {
             GameManager.Instance.StartGame();
+            GameManager.Instance.soundManager.PlayGameStateSound(GameStateSound.StartGame);
         }
 
         private void OnDestroy()

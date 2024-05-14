@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,6 +12,9 @@ namespace SpotTheDifference
     {
         [Header("Background Config")] 
         [SerializeField] private DifferenceBackgroundConfig differenceBackgroundConfig;
+
+        [Header("Cross GameObject")] 
+        [SerializeField] private GameObject cross;
         
         [Header("Items on the Background")]
         [SerializeField] private List<DifferenceObject> differenceObjects;
@@ -41,7 +45,11 @@ namespace SpotTheDifference
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            //If player clicks the background it fails
             OnWrongChoiceMade?.Invoke();
+            Instantiate(cross, eventData.position, quaternion.identity, transform);
+            GameManager.Instance.soundManager.PlayGameEffectsSound(GameEffects.Wrong);
+            Taptic.Medium();
         }
 
         public void SelectChildDifferenceObject(int id)

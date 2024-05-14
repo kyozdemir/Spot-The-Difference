@@ -45,7 +45,8 @@ namespace SpotTheDifference
         {
             backgrounds.ForEach(x => x.SelectChildDifferenceObject(childID));
             OnDifferenceSelected?.Invoke(true);
-            
+            GameManager.Instance.soundManager.PlayGameEffectsSound(GameEffects.Correct);
+            Taptic.Light();
             if (HasAllFound())
             {
                 GameManager.Instance.LevelCompleted();

@@ -9,6 +9,7 @@ namespace SpotTheDifference
     {
         //Managers
         public LevelManager levelManager;
+        public SoundManager soundManager;
         public UIController uiController;
         
         private static GameManager _instance;
@@ -22,10 +23,12 @@ namespace SpotTheDifference
             //I want to wake my managers up the order I specify 
             levelManager.Initialize();
             uiController.Initialize();
+            soundManager.Initialize();
         }
 
         public void LevelCompleted()
         {
+            //I want my GameManager give orders to my managers the order I specify
             levelManager.LevelCompleted();
             uiController.LevelCompleted();
         }

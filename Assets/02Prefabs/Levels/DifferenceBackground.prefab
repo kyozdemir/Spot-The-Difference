@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   differenceBackgroundConfig:
     id: 0
+  cross: {fileID: 1527013021808846394, guid: b76c2815d9ce96840898c2361ad4664d, type: 3}
   differenceObjects:
   - {fileID: 512209689442945514}
   - {fileID: 4015111498629200033}
